@@ -29,3 +29,18 @@ sysinfo.txt
 # Fichiers d'OS
 .DS_Store
 Thumbs.db
+
+# --- FILTRES POUR LE DOSSIER UNITY ---
+Client_VR_Unity/[L|l]ibrary/
+Client_VR_Unity/[T|t]emp/
+Client_VR_Unity/[O|o]bj/
+Client_VR_Unity/[B|b]uild/
+Client_VR_Unity/[B|b]uilds/
+Client_VR_Unity/[L|l]ogs/
+Client_VR_Unity/[U|u]sers/
+
+# Fichiers de configuration générés par les IDE
+*.csproj
+*.sln
+*.suo
+*.user

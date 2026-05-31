@@ -1,0 +1,19 @@
+fileFormatVersion: 2
+guid: 48219032a40ff49339e703b10177bc9d
+timeCreated: 1477675287
+licenseType: Store
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 74967
+  packageName: Low Polygon Potions Pack
+  packageVersion: 1.0
+  assetPath: Assets/Low Polygon Potions Pack/Other Assets/Scripts/CreatePrefabFromSelected.cs
+  uploadId: 144162
