@@ -1,0 +1,31 @@
+# Fichiers temporaires et builds Unity
+/[L|l]ibrary/
+/[T|t]emp/
+/[O|o]bj/
+/[B|b]uild/
+/[B|b]uilds/
+/[L|l]ogs/
+/[U|u]sers/
+/[M|m]emoryCaptures/
+
+# Fichiers d'environnement et de configuration VS Code / IDE
+.vs/
+.vscode/
+*.csproj
+*.sln
+*.suo
+*.user
+*.userprefs
+*.pidb
+*.booproj
+*.svd
+*.pdb
+*.opendb
+*.VC.db
+
+# Rapports de crash
+sysinfo.txt
+
+# Fichiers d'OS
+.DS_Store
+Thumbs.db

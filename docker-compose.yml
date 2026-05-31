@@ -1,0 +1,28 @@
+version: '3.8'
+
+services:
+  # Base de données MongoDB
+  mongodb:
+    image: mongo:latest
+    container_name: mongodb-pfa
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo-data:/data/db
+    restart: always
+
+  # Interface Web pour visualiser la base de données
+  mongo-express:
+    image: mongo-express:latest
+    container_name: mongo-express-pfa
+    ports:
+      - "8081:8081"
+    environment:
+      - ME_CONFIG_MONGODB_SERVER=mongodb
+      - ME_CONFIG_MONGODB_PORT=27017
+    depends_on:
+      - mongodb
+    restart: always
+
+volumes:
+  mongo-data:
