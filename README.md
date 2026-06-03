@@ -105,7 +105,9 @@ Ouvre le dossier `Client_VR_Unity` depuis Unity Hub.
 
 Vérifie que les serveurs Flask tournent en arrière-plan. Lance le mode Play dans l'éditeur Unity ou déploie le build sur le casque VR.
 
-Le système de tracking se synchronise alors automatiquement. ## Répartition des tâches (Rôles de l'équipe)
+Le système de tracking se synchronise alors automatiquement.
+
+## Répartition des tâches (Rôles de l'équipe)
 
 Pour mener à bien ce projet de fin de module, les différentes fonctionnalités et briques de l'architecture ont été réparties comme suit :
 
