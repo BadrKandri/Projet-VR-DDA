@@ -1,6 +1,6 @@
 # Infrastructure d'Adaptation Cognitive Événementielle en Réalité Virtuelle (DDA)
 
-Ce projet de Fin d'Année (PFA) présente une architecture logicielle distribuée pour l'**Ajustement Dynamique de la Difficulté (DDA)** dans un environnement immersif en réalité virtuelle.
+Ce projet de fin de module (**PFA**) présente une architecture logicielle distribuée pour l'**Ajustement Dynamique de la Difficulté (**DDA**)** dans un environnement immersif en réalité virtuelle.
 
 L'objectif est de maintenir l'utilisateur dans sa **Zone de Flow** en estimant en temps réel sa charge cognitive à partir de ses flux cinématiques, sans recours à des signaux haptiques ou biologiques.
 
@@ -15,14 +15,14 @@ Cette séparation limite l'impact du calcul d'inférence sur le rendu 3D et aide
 
 ## Architecture du projet
 
-```text
+```
 projet-final/
 ├── Client_VR_Unity/          # Application cliente immersive (Unity 3D / C#)
 │   ├── Assets/
 │   │   ├── Scripts/          # GameManager.cs, DataCollector.cs, spawners...
 │   │   └── Prefabs/          # Projectiles, environnements physiques
 │   └── ProjectSettings/
-├── brain.py                  # Serveur d'inférence temps réel et API DDA (Flask / Python)
+├── brain.py                  # Serveur d'inférence temps réel et **API** **DDA** (Flask / Python)
 ├── train.py                  # Pipeline d'apprentissage supervisé (Scikit-Learn)
 ├── session_manager.py        # Gestionnaire de sessions de jeu en mémoire
 ├── preprocessors.pkl         # Pipeline du modèle sérialisé
@@ -37,7 +37,7 @@ Le script `DataCollector.cs` échantillonne à 10 Hz les positions de la tête e
 
 ### Ingestion et stockage
 
-À la fin de chaque lancer, les trames brutes sont envoyées à l'API d'acquisition, puis historisées dans MongoDB. En parallèle, les variables condensées de performance alimentent `data.csv`.
+À la fin de chaque lancer, les trames brutes sont envoyées à l'**API** d'acquisition, puis historisées dans MongoDB. En parallèle, les variables condensées de performance alimentent `data.csv`.
 
 ### Inférence
 
@@ -54,7 +54,7 @@ Si la probabilité d'un état d'Ennui ou de Stress dépasse le seuil calibré de
 
 ### 1. Conception de l'environnement immersif
 
-- Développement du "Tube Magique" pour l'instanciation de projectiles rigides avec attribution stochastique de couleurs.
+- Développement du *Tube Magique* pour l'instanciation de projectiles rigides avec attribution stochastique de couleurs.
 - Implémentation du système de tri basé sur des zones de collision physiques (`OnTriggerEnter`).
 - Ajout d'une logique de jeu avancée avec mélange de Fisher-Yates et masquage de textures après 1 seconde.
 
@@ -73,7 +73,7 @@ Si la probabilité d'un état d'Ennui ou de Stress dépasse le seuil calibré de
 
 - Création d'un algorithme d'annotation automatique sur les données historiques.
 - Configuration d'un pipeline Scikit-Learn avec standardisation via `StandardScaler`.
-- Entraînement d'un classifieur Random Forest avec 200 arbres et `class_weight='balanced'`.
+- Entraînement d'un classifieur Random Forest avec **200** arbres et `class_weight='balanced'`.
 
 ### 5. Sécurisation contre la fuite de données
 
@@ -90,20 +90,30 @@ Si la probabilité d'un état d'Ennui ou de Stress dépasse le seuil calibré de
 ### Prérequis
 
 - Python 3.10+
-- Unity 2022.3 LTS ou plus récent, avec support OpenXR / XR Interaction Toolkit
+- Unity **2022**.3 **LTS** ou plus récent, avec support OpenXR / XR Interaction Toolkit
 - MongoDB, en local ou via Atlas
 
 ### Backend IA
 
 ```bash
-pip install flask pandas numpy scikit-learn
-python brain.py
+pip install flask pandas numpy scikit-learn python brain.py
 ```
 
 ### Client VR
 
-1. Ouvre le dossier `Client_VR_Unity` depuis Unity Hub.
-2. Vérifie que les serveurs Flask tournent en arrière-plan.
-3. Lance le mode Play dans l'éditeur Unity ou déploie le build sur le casque VR.
+Ouvre le dossier `Client_VR_Unity` depuis Unity Hub.
 
-Le système de tracking se synchronise alors automatiquement.
+Vérifie que les serveurs Flask tournent en arrière-plan. Lance le mode Play dans l'éditeur Unity ou déploie le build sur le casque VR.
+
+Le système de tracking se synchronise alors automatiquement. ## Répartition des tâches (Rôles de l'équipe)
+
+Pour mener à bien ce projet de fin de module, les différentes fonctionnalités et briques de l'architecture ont été réparties comme suit :
+
+| Membre de l'équipe | Responsabilités et Livrables |
+| :--- | :--- |
+| **Latifa Ait Alla** | Choix, intégration et optimisation des assets 3D + Rédaction et consolidation du rapport final. |
+| **Idrissi Kandri Badreddine** | Conception et développement des boîtes de tri physiques et du système d'instanciation du *Tube Magique*. |
+| **Khouloud Bennouby** | Développement et paramétrage de la scène de jeu en mode **Easy** (comportements statiques et prédictibles). |
+| **Asmaa Talal** | Développement et paramétrage de la scène de jeu en mode **Hard** (mélange de Fisher-Yates, masquage de couleurs). |
+| **Hamza Elmourabit** | Développement de l'infrastructure backend : conception de l'API Flask et intégration de la base de données MongoDB. |
+| **Saad Benhaimer** | Ingénierie des caractéristiques, entraînement du modèle de Machine Learning (Random Forest) et pipeline de validation. |
